@@ -5,12 +5,12 @@ import { CreateAlarmCommand } from 'src/alarms/application/commands/create-alarm
 
 @Controller('alarms')
 export class AlarmsController {
-  constructor(private readonly alarmsService: AlarmsService) {}
+  constructor(private readonly alarmsService: AlarmsService) { }
 
   @Post()
   create(@Body() createAlarmDto: CreateAlarmDto) {
     return this.alarmsService.create(
-      new CreateAlarmCommand(createAlarmDto.name, createAlarmDto.severity)
+      new CreateAlarmCommand(createAlarmDto.name, createAlarmDto.severity, createAlarmDto.triggeredAt, createAlarmDto.items)
     );
   }
 

@@ -1,0 +1,6 @@
+import { Alarm } from "src/alarms/domain/alarm";
+import { AlarmReadModel } from "src/alarms/domain/read-models/alarm.read-model";
+
+export abstract class FindAlarmsRepository {
+  abstract findAll(): Promise<AlarmReadModel[]>;
+}
